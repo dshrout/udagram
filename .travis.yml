@@ -6,17 +6,17 @@ services:
   - docker
 
 before_install:
-- docker build -t dshrout/udagram-frontend:v4 ./udagram-frontend
-- docker build -t dshrout/reverseproxy:v4 ./udagram-reverseproxy
-- docker build -t dshrout/udagram-api-user:v4 ./udagram-api-user
-- docker build -t dshrout/udagram-api-feed:v4 ./udagram-api-feed
+- docker build -t dshrout/udagram-frontend:v5 ./udagram-frontend
+- docker build -t dshrout/reverseproxy:v5 ./udagram-reverseproxy
+- docker build -t dshrout/udagram-api-user:v5 ./udagram-api-user
+- docker build -t dshrout/udagram-api-feed:v5 ./udagram-api-feed
 
 
 # Push
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- docker push dshrout/udagram-frontend:v4
-- docker push dshrout/reverseproxy:v4
-- docker push dshrout/udagram-api-user:v4
-- docker push dshrout/udagram-api-feed:v4
+- docker push dshrout/udagram-frontend:v5
+- docker push dshrout/reverseproxy:v5
+- docker push dshrout/udagram-api-user:v5
+- docker push dshrout/udagram-api-feed:v5
 
 
