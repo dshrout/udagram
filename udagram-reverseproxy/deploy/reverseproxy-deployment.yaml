@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: reverse-proxy
+  name: reverse-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: reverse-proxy
+  template:
+    metadata:
+      labels:
+        service: reverse-proxy
+    spec:
+      containers:
+        - image: dshrout/reverseproxy:v6
+          name: reverse-proxy
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "1024Mi"
+              cpu: "500m" 
+          ports:
+          - containerPort: 8080
