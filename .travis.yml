@@ -12,7 +12,7 @@ before_script:
   - echo "no tests"
 
 script:
-- docker build -t dshrout/udagram-frontend:v6 ./udagram-frontend
+- docker build -t dshrout/udagram-frontend:v7 ./udagram-frontend
 - docker build -t dshrout/reverseproxy:v6 ./udagram-reverseproxy
 - docker build -t dshrout/udagram-api-user:v6 ./udagram-api-user
 - docker build -t dshrout/udagram-api-feed:v6 ./udagram-api-feed
@@ -20,7 +20,7 @@ script:
 
 after_success:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- docker push dshrout/udagram-frontend:v6
+- docker push dshrout/udagram-frontend:v7
 - docker push dshrout/reverseproxy:v6
 - docker push dshrout/udagram-api-user:v6
 - docker push dshrout/udagram-api-feed:v6
