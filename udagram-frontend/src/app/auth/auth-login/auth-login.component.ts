@@ -32,6 +32,7 @@ export class AuthLoginComponent implements OnInit {
   }
 
   async onSubmit($event) {
+    console.log("auth onSubmit($event): $event = ", $event);
     $event.preventDefault();
 
     if (!this.loginForm.valid) { return; }

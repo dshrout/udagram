@@ -50,6 +50,7 @@ export class FeedUploadComponent implements OnInit {
   }
 
   onSubmit($event) {
+    console.log("feed onSubmit($event): $event = ", $event);
     $event.preventDefault();
     this.loadingController.create();
 

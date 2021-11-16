@@ -33,6 +33,7 @@ export class ApiService {
   }
 
   get(endpoint): Promise<any> {
+    console.log("get(endpoint): enpoint = ", endpoint);
     const url = `${API_HOST}${endpoint}`;
     const req = this.http.get(url, this.httpOptions).pipe(map(ApiService.extractData));
 
@@ -45,6 +46,8 @@ export class ApiService {
   }
 
   post(endpoint, data): Promise<any> {
+    console.log("post(endpoint, data): enpoint = ", endpoint);
+    console.log("post(endpoint, data): data = ", data);
     const url = `${API_HOST}${endpoint}`;
     return this.http.post<HttpEvent<any>>(url, data, this.httpOptions)
             .toPromise()
@@ -55,6 +58,9 @@ export class ApiService {
   }
 
   async upload(endpoint: string, file: File, payload: any): Promise<any> {
+    console.log("upload(endpoint, file, payload): endpoint = ", endpoint);
+    console.log("upload(endpoint, file, payload): file = ", file);
+    console.log("upload(endpoint, file, payload): payload = ", payload);
     const signed_url = (await this.get(`${endpoint}/signed-url/${file.name}`)).url;
 
     const headers = new HttpHeaders({'Content-Type': file.type});
