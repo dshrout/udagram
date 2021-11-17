@@ -14,6 +14,9 @@ import {V0_USER_MODELS} from './controllers/v0/model.index';
 
   console.debug("USER: Initialize database connection...");
   console.log("USER: $POSTGRES_HOST ", process.env.POSTGRES_HOST);
+  console.log("USER: $POSTGRES_USERNAME ", process.env.POSTGRES_USERNAME);
+  console.log("USER: $POSTGRES_PASSWORD ", process.env.POSTGRES_PASSWORD);
+  console.log("USER: $POSTGRES_DATABASE ", process.env.POSTGRES_DATABASE);
   await sequelize.sync();
 
   const app = express();

@@ -14,6 +14,9 @@ import {V0_FEED_MODELS} from './controllers/v0/model.index';
 
   console.debug("FEED: Initialize database connection...");
   console.log("FEED: $POSTGRES_HOST ", process.env.POSTGRES_HOST);
+  console.log("FEED: $POSTGRES_USERNAME ", process.env.POSTGRES_USERNAME);
+  console.log("FEED: $POSTGRES_PASSWORD ", process.env.POSTGRES_PASSWORD);
+  console.log("FEED: $POSTGRES_DATABASE ", process.env.POSTGRES_DATABASE);
   await sequelize.sync();
 
   const app = express();
