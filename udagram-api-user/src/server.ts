@@ -12,7 +12,8 @@ import {V0_USER_MODELS} from './controllers/v0/model.index';
 (async () => {
   await sequelize.addModels(V0_USER_MODELS);
 
-  console.debug("Initialize database connection...");
+  console.debug("USER: Initialize database connection...");
+  console.log("USER: $POSTGRES_HOST ", process.env.POSTGRES_HOST);
   await sequelize.sync();
 
   const app = express();
