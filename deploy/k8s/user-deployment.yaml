@@ -5,7 +5,7 @@ metadata:
     app: backend-user
   name: backend-user
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: backend-user
@@ -15,7 +15,7 @@ spec:
         app: backend-user
     spec:
       containers:
-        - image: dshrout/udagram-api-user:v7
+        - image: dshrout/udagram-api-user:v8
           name: backend-user
           imagePullPolicy: Always
           resources:
