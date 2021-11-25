@@ -34,12 +34,17 @@ export class ApiService {
 
   get(endpoint): Promise<any> {
     console.log("get(endpoint): enpoint = ", endpoint);
+
     const url = `${API_HOST}${endpoint}`;
+    console.log("full url: url = ", url);
+
     const req = this.http.get(url, this.httpOptions).pipe(map(ApiService.extractData));
+    console.log("request: req = ", req);
 
     return req
             .toPromise()
             .catch((e) => {
+              console.log("exception: ", e);
               ApiService.handleError(e);
               throw e;
             });
