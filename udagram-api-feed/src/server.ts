@@ -10,6 +10,7 @@ import {V0_FEED_MODELS} from './controllers/v0/model.index';
 
 
 (async () => {
+  console.debug("FEED: sequelize.addModels...");
   await sequelize.addModels(V0_FEED_MODELS);
 
   console.debug("FEED: Initialize database connection...");
