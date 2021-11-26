@@ -33,7 +33,7 @@ export class ApiService {
   }
 
   get(endpoint): Promise<any> {
-    console.log("get(endpoint): enpoint = ", endpoint);
+    // console.log("get(endpoint): enpoint = ", endpoint);
 
     const url = `${API_HOST}${endpoint}`;
     console.log("full url: url = ", url);
