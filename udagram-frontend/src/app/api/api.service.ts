@@ -33,7 +33,7 @@ export class ApiService {
   }
 
   get(endpoint): Promise<any> {
-    // console.log("get(endpoint): enpoint = ", endpoint);
+    // v10
 
     const url = `${API_HOST}${endpoint}`;
     console.log("full url: url = ", url);
@@ -51,7 +51,7 @@ export class ApiService {
   }
 
   post(endpoint, data): Promise<any> {
-    console.log("post(endpoint, data): enpoint = ", endpoint);
+    console.log("post(endpoint, data): endpoint = ", endpoint);
     console.log("post(endpoint, data): data = ", data);
     const url = `${API_HOST}${endpoint}`;
     return this.http.post<HttpEvent<any>>(url, data, this.httpOptions)
