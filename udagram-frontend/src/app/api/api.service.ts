@@ -33,8 +33,6 @@ export class ApiService {
   }
 
   get(endpoint): Promise<any> {
-    // v10
-
     const url = `${API_HOST}${endpoint}`;
     console.log("full url: url = ", url);
 
