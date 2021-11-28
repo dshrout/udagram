@@ -12,17 +12,17 @@ before_script:
   - echo "no tests"
 
 script:
-- docker build -t dshrout/udagram-frontend:v12 ./udagram-frontend
-- docker build -t dshrout/reverseproxy:v11 ./udagram-reverseproxy
-- docker build -t dshrout/udagram-api-user:v11 ./udagram-api-user
-- docker build -t dshrout/udagram-api-feed:v11 ./udagram-api-feed
+- docker build -t dshrout/udagram-frontend:v13 ./udagram-frontend
+- docker build -t dshrout/reverseproxy:v13 ./udagram-reverseproxy
+- docker build -t dshrout/udagram-api-user:v13 ./udagram-api-user
+- docker build -t dshrout/udagram-api-feed:v13 ./udagram-api-feed
 
 
 after_success:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- docker push dshrout/udagram-frontend:v12
-- docker push dshrout/reverseproxy:v11
-- docker push dshrout/udagram-api-user:v11
-- docker push dshrout/udagram-api-feed:v11
+- docker push dshrout/udagram-frontend:v13
+- docker push dshrout/reverseproxy:v13
+- docker push dshrout/udagram-api-user:v13
+- docker push dshrout/udagram-api-feed:v13
 
 

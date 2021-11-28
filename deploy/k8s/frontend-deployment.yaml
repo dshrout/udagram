@@ -15,7 +15,7 @@ spec:
         app: frontend-svc
     spec:
       containers:
-        - image: dshrout/udagram-frontend:v12
+        - image: dshrout/udagram-frontend:v13
           name: frontend-svc
           resources:
             requests:
