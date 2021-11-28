@@ -4,6 +4,8 @@ import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
 
 const API_HOST = environment.apiHost;
+const LOCAL_HOST_USER = environment.localHostUser;
+const LOCAL_HOST_FEED = environment.localHostFeed;
 
 @Injectable({
   providedIn: 'root'
@@ -32,8 +34,20 @@ export class ApiService {
     this.token = token;
   }
 
+  setApiHost(endpoint) {
+    if (window.location.hostname.toLowerCase().includes("localhost")) {
+      if (endpoint.toLowerCase().includes("user")) {
+        return LOCAL_HOST_USER;
+      }
+
+      return LOCAL_HOST_FEED;
+    }
+
+    return API_HOST;
+  }
+
   get(endpoint): Promise<any> {
-    const url = `${API_HOST}${endpoint}`;
+    const url = `${this.setApiHost(endpoint)}${endpoint}`;
     console.log("full url: url = ", url);
 
     const req = this.http.get(url, this.httpOptions).pipe(map(ApiService.extractData));
@@ -51,7 +65,7 @@ export class ApiService {
   post(endpoint, data): Promise<any> {
     console.log("post(endpoint, data): endpoint = ", endpoint);
     console.log("post(endpoint, data): data = ", data);
-    const url = `${API_HOST}${endpoint}`;
+    const url = `${this.setApiHost(endpoint)}${endpoint}`;
     return this.http.post<HttpEvent<any>>(url, data, this.httpOptions)
             .toPromise()
             .catch((e) => {
