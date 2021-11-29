@@ -6,7 +6,7 @@ metadata:
   name: reverseproxy
 spec:
   selector:
-    service: reverseproxy
+    service: reverse-proxy
   ports:
     - protocol: TCP
       port: 80
