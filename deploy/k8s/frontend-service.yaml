@@ -2,11 +2,11 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: frontend-svc
+    service: frontend-svc
   name: frontend-svc
 spec:
   selector:
-    app: frontend-svc
+    service: frontend-svc
   ports:
     - protocol: TCP
       port: 80
