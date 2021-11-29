@@ -8,7 +8,7 @@ spec:
   selector:
     service: reverse-proxy
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
+    - name: "8080"
+      port: 8080
+      targetPort: 8080
   type: LoadBalancer
