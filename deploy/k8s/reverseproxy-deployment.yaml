@@ -15,7 +15,7 @@ spec:
         service: reverse-proxy
     spec:
       containers:
-        - image: dshrout/reverseproxy:v13
+        - image: dshrout/reverseproxy:v14
           name: reverse-proxy
           imagePullPolicy: Always
           resources:
