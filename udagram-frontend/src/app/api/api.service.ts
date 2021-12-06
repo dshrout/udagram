@@ -64,13 +64,9 @@ export class ApiService {
     console.log("upload(endpoint, file, payload): endpoint = ", endpoint);
     console.log("upload(endpoint, file, payload): file = ", file);
     console.log("upload(endpoint, file, payload): payload = ", payload);
-
     const signed_url = (await this.get(`${endpoint}/signed-url/${file.name}`)).url;
-    console.log("signed_url = ", signed_url);
 
     const headers = new HttpHeaders({'Content-Type': file.type});
-    console.log("headers = ", headers);
-    
     const req = new HttpRequest( 'PUT', signed_url, file,
                                   {
                                     headers: headers,
@@ -79,14 +75,9 @@ export class ApiService {
 
     return new Promise ( resolve => {
         this.http.request(req).subscribe((resp) => {
-        if (resp && (<any> resp).status) {
-          console.log("Response Status: ", (<any> resp).status);
-          console.log("Response: ", resp);
-        }
-        
         if (resp && (<any> resp).status && (<any> resp).status === 200) {
           resolve(this.post(endpoint, payload));
-        } 
+        }
       });
     });
   }
