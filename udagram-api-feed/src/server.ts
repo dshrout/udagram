@@ -21,12 +21,6 @@ import {V0_FEED_MODELS} from './controllers/v0/model.index';
 
   app.use(bodyParser.json());
 
-  app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    next();
-  });
-
   // We set the CORS origin to * so that we don't need to
   // worry about the complexities of CORS this lesson. It's
   // something that will be covered in the next course.
