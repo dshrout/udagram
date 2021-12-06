@@ -10,7 +10,6 @@ import {V0_USER_MODELS} from './controllers/v0/model.index';
 
 
 (async () => {
-  console.debug("USER: sequelize.addModels...");
   await sequelize.addModels(V0_USER_MODELS);
 
   console.debug("USER: Initialize database connection...");
@@ -20,6 +19,12 @@ import {V0_USER_MODELS} from './controllers/v0/model.index';
   const port = process.env.PORT || 8080;
 
   app.use(bodyParser.json());
+
+  app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    next();
+  });
 
   // We set the CORS origin to * so that we don't need to
   // worry about the complexities of CORS this lesson. It's
