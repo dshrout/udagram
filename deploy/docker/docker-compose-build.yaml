@@ -15,4 +15,4 @@ services:
   frontend:
     build:
       context: ./udagram-frontend
-    image: dshrout/udagram-frontend:v15
+    image: dshrout/udagram-frontend:v16
