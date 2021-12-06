@@ -65,6 +65,7 @@ export class ApiService {
     console.log("upload(endpoint, file, payload): file = ", file);
     console.log("upload(endpoint, file, payload): payload = ", payload);
     const signed_url = (await this.get(`${endpoint}/signed-url/${file.name}`)).url;
+    console.log(`signed_url = ${signed_url}`);
 
     const headers = new HttpHeaders({'Content-Type': file.type});
     const req = new HttpRequest( 'PUT', signed_url, file,
