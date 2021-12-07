@@ -15,7 +15,7 @@ script:
 - docker build -t dshrout/udagram-frontend:v16 ./udagram-frontend
 - docker build -t dshrout/reverseproxy:v15 ./udagram-reverseproxy
 - docker build -t dshrout/udagram-api-user:v15 ./udagram-api-user
-- docker build -t dshrout/udagram-api-feed:v15 ./udagram-api-feed
+- docker build -t dshrout/udagram-api-feed:v16 ./udagram-api-feed
 
 
 after_success:
@@ -23,6 +23,6 @@ after_success:
 - docker push dshrout/udagram-frontend:v16
 - docker push dshrout/reverseproxy:v15
 - docker push dshrout/udagram-api-user:v15
-- docker push dshrout/udagram-api-feed:v15
+- docker push dshrout/udagram-api-feed:v16
 
 

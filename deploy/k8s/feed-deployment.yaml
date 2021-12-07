@@ -15,7 +15,7 @@ spec:
         app: backend-feed
     spec:
       containers:
-        - image: dshrout/udagram-api-feed:v15
+        - image: dshrout/udagram-api-feed:v16
           name: backend-feed
           imagePullPolicy: Always
           resources:
@@ -23,6 +23,7 @@ spec:
               memory: "1024Mi"
             limits:
               memory: "2046Mi"
+              cpu: "500m"
           env:
             - name: URL
               valueFrom:
